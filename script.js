@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const btnBuscar = document.getElementById("btt_random");
+    const fav = document.getElementById("btt_fav");
     const cargando = document.getElementById("cargando");
     const contenedorCoctel = document.getElementById("coctel");
+    const listaFavoritos = document.getElementById("lista_favoritos");
+
+    let currentCoctel = null;
 
     async function obtenerCoctel() {
         cargando.classList.remove("hidden"); // Mostrar "Cargando..."
@@ -10,7 +14,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
             const data = await response.json();
-            mostrarCoctel(data.drinks[0]);
+            currentCoctel = data.drinks[0];
+            mostrarCoctel(currentCoctel);
         } catch (error) {
             alert("Error al cargar el cóctel.");
         } finally {
@@ -19,10 +24,34 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    async function añadirFavorito() {
+        if (currentCoctel) {
+            let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+            favoritos.push(currentCoctel);
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+            actualizarListaFavoritos();
+        } else {
+            alert("No hay cóctel para añadir a favoritos.");
+        }
+    }
+
+    function actualizarListaFavoritos() {
+        listaFavoritos.innerHTML = "";
+        let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+        favoritos.forEach(coctel => {
+            const item = document.createElement("li");
+            item.textContent = coctel.strDrink;
+            listaFavoritos.appendChild(item);
+        });
+    }
+
     btnBuscar.addEventListener("click", obtenerCoctel);
+    fav.addEventListener("click", añadirFavorito);
 
     // Llamar a la función al cargar la página para mostrar un cóctel inicial
     obtenerCoctel();
+    // Actualizar la lista de favoritos al cargar la página
+    actualizarListaFavoritos();
 
     function mostrarCoctel(coctel) {
         document.getElementById("nombre").textContent = coctel.strDrink;
