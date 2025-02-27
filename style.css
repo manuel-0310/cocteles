@@ -1,0 +1,170 @@
+/* Personalización del scrollbar */
+body::-webkit-scrollbar {
+    width: 12px;             
+}
+body::-webkit-scrollbar-track {
+    background: rgba(167, 159, 152, 0.132);        
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(173, 173, 173); 
+    border-radius: 4px;   
+}
+
+/* Variables para fuentes y colores */
+:root {
+    --fondo: #ffffff;
+    --fondo-contenedor: #b6cce5;
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-texto: 'Lora', serif;
+    --fuente-secundaria: 'Poppins', sans-serif;
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--fondo);
+    font-family: var(--fuente-texto);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+main {  
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    padding: 20px;
+    min-height: 100vh;
+    max-width: 90%;
+    margin: auto;
+}
+
+/* Contenedor del cóctel */
+#contenedor {
+    width: 30%; 
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Títulos mejorados */
+h1, h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    text-align: center;
+}
+
+h3 {
+    font-family: var(--fuente-secundaria);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Texto */
+p, li {
+    font-family: var(--fuente-texto);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#nombre {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700; /* Más grueso para destacar */
+    text-align: center;
+    margin-top: 0;
+}
+
+#categoria {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400; /* Más delgado para diferenciar */
+    color: #333; /* Un tono más oscuro para menos protagonismo */
+}
+
+
+/* Caja de información del cóctel */
+#coctel {
+    width: 100%;
+    background-color: var(--fondo-contenedor);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; 
+}
+
+#favoritos {
+    width: 20%; 
+    background-color: var(--fondo-contenedor);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen */
+#imagen {
+    width: 100%; 
+    max-width: 200px; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 10px; 
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); 
+    transition: 0.25s;
+}
+
+#imagen:hover{
+    scale: 1.1;
+}
+
+/* Botones */
+button {
+    background: var(--fondo);
+    border: 2px solid rgba(6, 114, 172, 0.5);
+    font: inherit;
+    font-size: 16px;
+    padding: 10px 25px;
+    transition: 0.25s;
+    border-radius: 10px;
+}
+#btt_random {
+    margin-right: 10px;
+}
+
+#btt_fav:hover, #btt_random:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em rgba(6, 114, 172, 0.5);
+    transform: translateY(-0.25em);
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 1300px) {
+    #contenedor {
+        width: 40%; 
+    }
+    #favoritos {
+        width: 30%; 
+    }
+    #botones {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #btt_random{
+        margin-right: 0px;
+    }
+}
+
+@media(max-width: 700PX) {
+    #contenedor {
+        width: 70%; 
+    }
+    #favoritos {
+        width: 45%; 
+    }
+}

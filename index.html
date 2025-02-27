@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cócteles</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <link rel="icon" type="image/png" href="+18.png">        
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <body>
+        <main>
+            <section id="contenedor">
+
+                <div id="cargando" class="hidden">Cargando...</div>
+
+                <article id="coctel">
+                    <h2 id="nombre"></h2>
+                    <img src alt="Imagen" id="imagen">
+                    
+                    <p><strong>Categoría: </strong><span
+                            id="categoria"></span></p>
+                    <h3>Ingredientes:</h3>
+                    <ul id="ingredientes"></ul>
+                    <h3>Instrucciones:</h3>
+                    <p id="instrucciones"></p>
+                </article>
+
+                <section id="botones">
+                    <button id="btt_random">Buscar nuevo</button>
+                    <button id="btt_fav">Añadir a favoritos</button>
+
+                </section>
+            </section>
+
+            <section id="favoritos">
+                <h2>Favoritos</h2>
+                <ul id="lista_favoritos"></ul>
+            </section>
+        </main>
+    </body>
+</html>
