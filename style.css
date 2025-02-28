@@ -31,7 +31,7 @@ body {
 /* Contenedor principal */
 main {  
     display: flex;
-    flex-direction: column; 
+    
     justify-content: center;
     align-items: center;
     gap: 20px; 
@@ -51,11 +51,7 @@ main {
 }
 
 /* Títulos mejorados */
-h1, h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 28px;
-    text-align: center;
-}
+
 
 h3 {
     font-family: var(--fuente-secundaria);
@@ -70,7 +66,7 @@ p, li {
     line-height: 1.6;
 }
 
-#nombre {
+#nombre, h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 28px;
     font-weight: 700; /* Más grueso para destacar */
@@ -78,7 +74,11 @@ p, li {
     margin-top: 0;
 }
 
-#categoria {
+#lista_favoritos{
+    list-style: "💜 ";
+}
+
+#categoria, ul {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     font-weight: 400; /* Más delgado para diferenciar */
@@ -102,6 +102,8 @@ p, li {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-left: 50px;
+
 }
 
 /* Imagen */
@@ -129,12 +131,17 @@ button {
     padding: 10px 25px;
     transition: 0.25s;
     border-radius: 10px;
+    
 }
 #btt_random {
     margin-right: 10px;
 }
 
-#btt_fav:hover, #btt_random:hover {
+#btt_borrar{
+    display: block;
+    margin: auto;
+}
+#btt_fav:hover, #btt_random:hover, #btt_borrar:hover {
     box-shadow: 0 0.5em 0.5em -0.4em rgba(6, 114, 172, 0.5);
     transform: translateY(-0.25em);
 }
@@ -144,13 +151,19 @@ button {
 
 }
 
+#botones {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+   
+}
+
 
 @media(max-width: 1300px) {
     #contenedor {
         width: 40%; 
     }
     #favoritos {
-        width: 30%; 
+        width: 25%; 
     }
     #botones {
         display: flex;
@@ -167,6 +180,13 @@ button {
         width: 70%; 
     }
     #favoritos {
-        width: 45%; 
+        width: 55%; 
+        margin-left: 0; /* Evita margen lateral innecesario */
+
+    }
+    main {  
+        flex-direction: column;
+        align-items: center; /* Centrar contenido */
+        
     }
 }
